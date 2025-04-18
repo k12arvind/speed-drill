@@ -1,59 +1,122 @@
+/* —— Global base —— */
 body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
+    background: #f0f2f5; /* light neutral page background */
   }
   #app {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 0 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 10px;
   }
   
-  /* —— SETTINGS SCREEN —— */
-  #settings-screen {
-    background: #fff9c4;
-    padding: 20px;
+  /* —— All Screens “Card” Boilerplate —— */
+  #settings-screen,
+  #game-screen,
+  #result-screen,
+  #review-screen,
+  #history-screen,
+  #leaderboard-screen,
+  #achievements-screen {
     border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
   }
-  label {
-    display: block;
-    margin: 12px 0;
-    line-height: 1.4;
-  }
-  label input[type="text"],
-  label input[type="number"],
-  label select {
-    font-size: 1em;
-    margin-left: 8px;
-    padding: 4px 6px;
-  }
-  .buttons {
-    margin-top: 20px;
-  }
-  .buttons button {
-    margin-right: 10px;
-    padding: 6px 14px;
+  .hidden {
+    display: none;
   }
   
-  /* —— OTHER SCREENS —— */
-  .hidden { display: none; }
+  /* —— Per‑Screen Backgrounds —— */
+  #settings-screen   { background: #fff9c4; } /* pale yellow */
+  #game-screen       { background: #eceff1; } /* very light grey‑blue */
+  #result-screen     { background: #c8e6c9; } /* pale green */
+  #review-screen     { background: #bbdefb; } /* pale blue */
+  #history-screen    { background: #e1bee7; } /* pale purple */
+  #leaderboard-screen{ background: #ffe0b2; } /* pale orange */
+  #achievements-screen{background: #b2dfdb;} /* pale teal */
+  
+  /* —— Settings: inline, small inputs —— */
+  #settings-screen label {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+  #settings-screen label strong {
+    min-width: 100px;
+  }
+  #settings-screen label input[type="text"],
+  #settings-screen label input[type="number"],
+  #settings-screen label select {
+    margin: 4px 8px;
+    padding: 4px 6px;
+    font-size: 0.9em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* specifically constrain widths */
+  #settings-screen label input[type="number"] { width: 60px; }
+  #settings-screen label input[type="text"]  { width: 140px; }
+  
+  /* —— Stats box —— */
+  .stats {
+    background: #e1f5fe; /* pale sky‑blue */
+    padding: 10px 14px;
+    margin: 10px 0;
+    border-radius: 6px;
+    font-size: 0.95em;
+  }
+  .stats p {
+    margin: 4px 0;
+  }
+  
+  /* —— Flat blue buttons (all screens) —— */
+  button {
+    background-color: #1976d2; /* primary blue */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 14px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin: 4px;
+  }
+  button:hover {
+    background-color: #1565c0;
+  }
+  button:active {
+    background-color: #0d47a1;
+  }
+  
+  /* —— Game header —— */
   .header {
     display: flex;
     justify-content: space-between;
     font-size: 1.1em;
     margin-bottom: 20px;
   }
+  
+  /* —— Problem box —— */
   .problem-container {
-    background: #eee;
+    background: #fff; /* white for focus */
     padding: 20px;
     text-align: center;
     font-size: 1.5em;
+    border-radius: 4px;
   }
   .problem-container input {
     width: 100px;
     font-size: 1.3em;
     text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
+  
+  /* —— History table —— */
   #history-table {
     width: 100%;
     border-collapse: collapse;
@@ -61,10 +124,59 @@ body {
   }
   #history-table th,
   #history-table td {
-    border: 1px solid #aaa;
-    padding: 6px;
+    border: 1px solid #ddd;
+    padding: 8px;
     text-align: center;
   }
+  #history-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* —— Leaderboard bars —— */
+  #leaderboard-container {
+    margin: 10px 0;
+  }
+  .leaderboard-bar {
+    position: relative;
+    background: #64b5f6;
+    height: 24px;
+    margin: 6px 0;
+    border-radius: 4px;
+    color: white;
+    line-height: 24px;
+    font-size: 0.9em;
+    padding-right: 8px;
+    padding-left: 32px; /* space for medal */
+  }
+  .leaderboard-bar .medal {
+    position: absolute;
+    left: 8px;
+    top: 0;
+    font-size: 1.2em;
+    line-height: 24px;
+  }
+  
+  /* —— Achievements list —— */
+  #achievements-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  #achievements-list li {
+    display: flex;
+    align-items: center;
+    background: #81d4fa;
+    margin: 6px 0;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.95em;
+  }
+  #achievements-list li .icon {
+    font-size: 1.2em;
+    margin-right: 8px;
+  }
+  
+  /* —— Wrong answer shake —— */
   input.wrong {
     animation: shake 0.2s;
     border: 1px solid red;

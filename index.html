@@ -1,9 +1,24 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Speed Drill</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Grey‑out the start button until name is entered */
+    .btn-disabled {
+      background-color: #ccc !important;
+      color: #666 !important;
+      cursor: not-allowed !important;
+    }
+    /* Error message styling */
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 4px;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
@@ -16,10 +31,16 @@
         <strong>Name:</strong>
         <input type="text" id="player-name" placeholder="Enter your name">
       </label>
+      <div id="name-error" class="error"></div>
+
+      <div id="daily-stats" class="stats">
+        <p>Rounds today: <strong><span id="rounds-today">0</span></strong></p>
+        <p>Current streak: <strong><span id="current-streak">0</span></strong> days</p>
+      </div>
 
       <label>
         <input type="checkbox" id="enable-mul" checked>
-        <strong>Multiplication:</strong><br>
+        <strong>Multiplication:</strong>
         ( <input id="mul1-min" type="number" value="11" min="1"> to
           <input id="mul1-max" type="number" value="19" min="1"> )
         ×
@@ -29,7 +50,7 @@
 
       <label>
         <input type="checkbox" id="enable-div" checked>
-        <strong>Division:</strong><br>
+        <strong>Division:</strong>
         ( <input id="div-d-min" type="number" value="20" min="1"> to
           <input id="div-d-max" type="number" value="1000" min="1"> )
         ÷
@@ -39,12 +60,12 @@
 
       <label>
         <input type="checkbox" id="enable-pct" checked>
-        Percentage‑Of (fixed fraction list)
+        Percentage‑Of
       </label>
 
       <label>
         <input type="checkbox" id="enable-solve" checked>
-        Solve‑for‑X (fixed fraction list)
+        Solve‑for‑X
       </label>
 
       <label>
@@ -64,8 +85,10 @@
       </label>
 
       <div class="buttons">
-        <button id="start-btn">Start</button>
+        <button id="start-btn" class="btn-disabled">Start</button>
         <button id="view-history-btn">History</button>
+        <button id="view-leaderboard-btn">Leaderboard</button>
+        <button id="view-achievements-btn">Achievements</button>
       </div>
     </div>
 
@@ -89,6 +112,8 @@
         <button id="play-again-btn">Play Again</button>
         <button id="review-btn">Review Slowest</button>
         <button id="view-history-2-btn">History</button>
+        <button id="view-leaderboard-2-btn">Leaderboard</button>
+        <button id="view-achievements-2-btn">Achievements</button>
       </div>
     </div>
 
@@ -109,6 +134,7 @@
             <th>Date & Time</th>
             <th>Duration</th>
             <th>Score</th>
+            <th>Top 5 Slowest</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -116,8 +142,21 @@
       <button id="back-btn">Back</button>
     </div>
 
-  </div>
+    <!-- LEADERBOARD SCREEN -->
+    <div id="leaderboard-screen" class="hidden">
+      <h2>Leaderboard</h2>
+      <div id="leaderboard-container"></div>
+      <button id="back-to-settings-btn">Back</button>
+    </div>
 
+    <!-- ACHIEVEMENTS SCREEN -->
+    <div id="achievements-screen" class="hidden">
+      <h2>Achievements</h2>
+      <ul id="achievements-list"></ul>
+      <button id="back-to-settings-btn-2">Back</button>
+    </div>
+
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
