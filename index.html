@@ -72,8 +72,8 @@
     <!-- GAME SCREEN -->
     <div id="game-screen" class="hidden">
       <div class="header">
-        <span id="timer">Time: 00:00</span>
-        <span id="score">Score: 0</span>
+        <span id="timer">Time: 00:00</span>
+        <span id="score">Score: 0</span>
       </div>
       <div class="problem-container">
         <span id="problem"></span>
@@ -85,8 +85,18 @@
     <div id="result-screen" class="hidden">
       <h2>Time’s up!</h2>
       <p id="final-score"></p>
-      <button id="play-again-btn">Play Again</button>
-      <button id="view-history-2-btn">History</button>
+      <div class="buttons">
+        <button id="play-again-btn">Play Again</button>
+        <button id="review-btn">Review Slowest</button>
+        <button id="view-history-2-btn">History</button>
+      </div>
+    </div>
+
+    <!-- REVIEW SLOWEST SCREEN -->
+    <div id="review-screen" class="hidden">
+      <h2>Slowest Answers</h2>
+      <ol id="slow-list"></ol>
+      <button id="back-to-results-btn">Back</button>
     </div>
 
     <!-- HISTORY SCREEN -->
@@ -96,7 +106,7 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Date & Time</th>
+            <th>Date & Time</th>
             <th>Duration</th>
             <th>Score</th>
           </tr>
@@ -107,6 +117,7 @@
     </div>
 
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
