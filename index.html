@@ -19,6 +19,7 @@
       margin-top: 4px;
     }
   </style>
+
 </head>
 <body>
   <div id="app">
@@ -41,21 +42,21 @@
       <label>
         <input type="checkbox" id="enable-mul" checked>
         <strong>Multiplication:</strong>
-        ( <input id="mul1-min" type="number" value="11" min="1"> to
-          <input id="mul1-max" type="number" value="19" min="1"> )
+        (<input id="mul1-min" type="number" value="11" min="1"> to
+         <input id="mul1-max" type="number" value="19" min="1">)
         ×
-        ( <input id="mul2-min" type="number" value="11" min="1"> to
-            <input id="mul2-max" type="number" value="50" min="1"> )
+        (<input id="mul2-min" type="number" value="11" min="1"> to
+         <input id="mul2-max" type="number" value="50" min="1">)
       </label>
 
       <label>
         <input type="checkbox" id="enable-div" checked>
         <strong>Division:</strong>
-        ( <input id="div-d-min" type="number" value="20" min="1"> to
-          <input id="div-d-max" type="number" value="1000" min="1"> )
+        (<input id="div-d-min" type="number" value="20" min="1"> to
+         <input id="div-d-max" type="number" value="1000" min="1">)
         ÷
-        ( <input id="div-q-min" type="number" value="11" min="1"> to
-            <input id="div-q-max" type="number" value="20" min="1"> )
+        (<input id="div-q-min" type="number" value="11" min="1"> to
+         <input id="div-q-max" type="number" value="20" min="1">)
       </label>
 
       <label>
@@ -135,6 +136,7 @@
             <th>Duration</th>
             <th>Score</th>
             <th>Top 5 Slowest</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -153,10 +155,17 @@
     <div id="achievements-screen" class="hidden">
       <h2>Achievements</h2>
       <ul id="achievements-list"></ul>
-      <button id="back-to-settings-btn-2">Back</button>
+      <div class="buttons">
+        <button id="reset-achievements-btn">Reset Achievements</button>
+        <button id="back-to-settings-btn-2">Back</button>
+      </div>
     </div>
 
   </div>
+
+  <!-- Toast container -->
+  <div id="toast-container" class="hidden"></div>
+
   <script src="script.js"></script>
 </body>
 </html>

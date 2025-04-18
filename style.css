@@ -1,17 +1,19 @@
-/* —— Global base —— */
+/* style.css */
+/* —— Page & cards —— */
 body {
     font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f0f2f5; /* light neutral page background */
+    margin: 0; padding: 0;
+    background: #f0f2f5;
   }
-  #app {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 0 10px;
-  }
-  
-  /* —— All Screens “Card” Boilerplate —— */
+  #app { max-width: 600px; margin: 20px auto; padding: 0 10px; }
+  .hidden { display: none; }
+  #settings-screen   { background: #fff9c4; }
+  #game-screen       { background: #eceff1; }
+  #result-screen     { background: #c8e6c9; }
+  #review-screen     { background: #bbdefb; }
+  #history-screen    { background: #e1bee7; }
+  #leaderboard-screen{ background: #ffe0b2; }
+  #achievements-screen{background: #b2dfdb;}
   #settings-screen,
   #game-screen,
   #result-screen,
@@ -38,152 +40,182 @@ body {
   #achievements-screen{background: #b2dfdb;} /* pale teal */
   
   /* —— Settings: inline, small inputs —— */
+
+  
+  /* —— Settings inputs inline —— */
   #settings-screen label {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    display: flex; align-items: center; flex-wrap: wrap;
     margin: 12px 0;
   }
-  #settings-screen label strong {
-    min-width: 100px;
+  #settings-screen label strong { min-width: 100px; }
+  #settings-screen input[type="text"],
+  #settings-screen input[type="number"],
+  #settings-screen select {
+    margin: 4px 8px; padding: 4px 6px;
+    font-size: 0.9em; border: 1px solid #ccc; border-radius: 4px;
   }
-  #settings-screen label input[type="text"],
-  #settings-screen label input[type="number"],
-  #settings-screen label select {
-    margin: 4px 8px;
-    padding: 4px 6px;
-    font-size: 0.9em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* specifically constrain widths */
-  #settings-screen label input[type="number"] { width: 60px; }
-  #settings-screen label input[type="text"]  { width: 140px; }
+  #settings-screen input[type="text"]  { width: 140px; }
+  #settings-screen input[type="number"]{ width: 60px; }
   
   /* —— Stats box —— */
   .stats {
-    background: #e1f5fe; /* pale sky‑blue */
-    padding: 10px 14px;
-    margin: 10px 0;
-    border-radius: 6px;
+    background: #e1f5fe; padding: 10px 14px;
+    margin: 10px 0; border-radius: 6px;
     font-size: 0.95em;
   }
-  .stats p {
-    margin: 4px 0;
-  }
+  .stats p { margin: 4px 0; }
   
-  /* —— Flat blue buttons (all screens) —— */
+  /* —— Buttons —— */
   button {
-    background-color: #1976d2; /* primary blue */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 14px;
-    font-size: 0.9em;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    background-color: #1976d2; color: #fff;
+    border: none; border-radius: 4px;
+    padding: 8px 14px; font-size: 0.9em;
+    cursor: pointer; transition: background-color 0.2s;
     margin: 4px;
   }
-  button:hover {
-    background-color: #1565c0;
-  }
-  button:active {
-    background-color: #0d47a1;
-  }
-  
-  /* —— Game header —— */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.1em;
-    margin-bottom: 20px;
+  button:hover { background-color: #1565c0; }
+  button:active{ background-color: #0d47a1; }
+  .btn-disabled {
+    background-color: #ccc !important;
+    color: #666   !important;
+    cursor: not-allowed !important;
   }
   
-  /* —— Problem box —— */
+  /* —— Error text —— */
+  .error { color: red; font-size: 0.9em; margin-top: 4px; }
+  
+  /* —— Game header & problem box —— */
+  .header { display:flex; justify-content:space-between; margin-bottom:20px; }
   .problem-container {
-    background: #fff; /* white for focus */
-    padding: 20px;
-    text-align: center;
-    font-size: 1.5em;
-    border-radius: 4px;
+    background: #fff; padding:20px;
+    text-align:center; font-size:1.5em; border-radius:4px;
   }
   .problem-container input {
-    width: 100px;
-    font-size: 1.3em;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width:100px; font-size:1.3em;
+    text-align:center; border:1px solid #ccc; border-radius:4px;
   }
   
   /* —— History table —— */
   #history-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 10px;
+    width:100%; border-collapse:collapse; margin-bottom:10px;
   }
   #history-table th,
   #history-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
+    border:1px solid #ddd; padding:8px; text-align:center;
   }
-  #history-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
+  #history-table tr:nth-child(even){ background:#f9f9f9; }
   
   /* —— Leaderboard bars —— */
-  #leaderboard-container {
-    margin: 10px 0;
-  }
+  #leaderboard-container { margin:10px 0; }
   .leaderboard-bar {
-    position: relative;
-    background: #64b5f6;
-    height: 24px;
-    margin: 6px 0;
-    border-radius: 4px;
-    color: white;
-    line-height: 24px;
-    font-size: 0.9em;
-    padding-right: 8px;
-    padding-left: 32px; /* space for medal */
+    position:relative;
+    background:#64b5f6; height:24px;
+    margin:6px 0; border-radius:4px;
+    color:#fff; line-height:24px;
+    font-size:0.9em; padding-right:8px;
+    padding-left:32px;
   }
   .leaderboard-bar .medal {
-    position: absolute;
-    left: 8px;
-    top: 0;
-    font-size: 1.2em;
-    line-height: 24px;
+    position:absolute; left:8px; top:0;
+    font-size:1.2em; line-height:24px;
   }
   
   /* —— Achievements list —— */
   #achievements-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    list-style:none; padding:0; margin:0;
   }
   #achievements-list li {
+    display:flex; align-items:center;
+    background:#81d4fa; margin:6px 0;
+    padding:8px 12px; border-radius:4px;
+    font-size:0.95em;
+  }
+  #achievements-list .icon {
+    font-size:1.2em; margin-right:8px;
+  }
+  
+  /* —— Toast notifications —— */
+  #toast-container {
+    position:fixed; bottom:20px; right:20px;
+    width:200px; z-index:1000;
+  }
+  .toast {
+    background:#323232; color:#fff;
+    padding:12px 16px; margin-top:10px;
+    border-radius:4px; box-shadow:0 2px 6px rgba(0,0,0,0.2);
+    opacity:0.9; font-size:0.9em;
+    animation:slideIn 0.3s ease-out;
+  }
+  @keyframes slideIn {
+    from { transform:translateX(100%); }
+    to   { transform:translateX(0); }
+  }
+  
+  /* —— Wrong‑answer shake —— */
+  input.wrong {
+    animation:shake 0.2s; border:1px solid red;
+  }
+  @keyframes shake {
+    0%,100% { transform:translateX(0); }
+    25%     { transform:translateX(-4px); }
+    75%     { transform:translateX(4px); }
+  }
+
+  /* Achievements list: unlocked vs locked */
+#achievements-list li {
     display: flex;
     align-items: center;
     background: #81d4fa;
     margin: 6px 0;
     padding: 8px 12px;
+    margin: 6px 0;
     border-radius: 4px;
     font-size: 0.95em;
+  }
+  #achievements-list li.unlocked {
+    background: #64b5f6;   /* blue */
+    color: white;
+  }
+  #achievements-list li.locked {
+    background: #e0e0e0;   /* light grey */
+    color: #888;           /* grey text */
   }
   #achievements-list li .icon {
     font-size: 1.2em;
     margin-right: 8px;
-  }
-  
-  /* —— Wrong answer shake —— */
-  input.wrong {
-    animation: shake 0.2s;
-    border: 1px solid red;
+    font-size: 1.2em;
   }
   @keyframes shake {
     0%,100% { transform: translateX(0); }
     25%     { transform: translateX(-4px); }
     75%     { transform: translateX(4px); }
   }
+  
+ /* Ensure .hidden still hides the screen fully */
+.hidden {
+    display: none !important;
+  }
+  
+  /* Style the game screen when shown */
+  #game-screen:not(.hidden) {
+    /* center content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 20px;
+  
+    /* new border and background */
+    background-color: #f3e5f5;    /* very light purple */
+    border: 2px solid #7e57c2;    /* medium purple border */
+    border-radius: 8px;
+  }
+  
+  /* Bold the equation text inside the game screen */
+  #game-screen:not(.hidden) .problem-container,
+  #game-screen:not(.hidden) .problem-container #problem {
+    font-weight: bold;
+  }
+  
   
