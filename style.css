@@ -1,0 +1,77 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  #app {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  /* —— SETTINGS SCREEN —— */
+  #settings-screen {
+    background: #fff9c4;    /* pale yellow */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  label {
+    display: block;
+    margin: 12px 0;
+    line-height: 1.4;
+  }
+  label input[type="text"],
+  label input[type="number"],
+  label select {
+    font-size: 1em;
+    margin-left: 8px;
+    padding: 4px 6px;
+  }
+  .buttons {
+    margin-top: 20px;
+  }
+  .buttons button {
+    margin-right: 10px;
+    padding: 6px 14px;
+  }
+  
+  /* —— OTHER SCREENS —— */
+  .hidden { display: none; }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+  }
+  .problem-container {
+    background: #eee;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em;
+  }
+  .problem-container input {
+    width: 100px;
+    font-size: 1.3em;
+    text-align: center;
+  }
+  #history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+  }
+  #history-table th,
+  #history-table td {
+    border: 1px solid #aaa;
+    padding: 6px;
+    text-align: center;
+  }
+  input.wrong {
+    animation: shake 0.2s;
+    border: 1px solid red;
+  }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25%     { transform: translateX(-4px); }
+    75%     { transform: translateX(4px); }
+  }
+  
